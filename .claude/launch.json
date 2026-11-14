@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "slotwars", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--", "--port", "5173", "--strictPort"], "port": 5173 },
+    { "name": "slotwars-rooms", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:rooms"], "port": 8790 },
+    { "name": "slotwars-api", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev:api"], "port": 8788 }
+  ]
+}

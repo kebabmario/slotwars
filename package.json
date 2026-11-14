@@ -1,0 +1,28 @@
+{
+  "name": "slotwars",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "audio": "node scripts/audio/build.ts",
+    "test": "node --test src/*.test.ts src/game/*.test.ts src/net/*.test.ts src/assets/*.test.ts src/ui/*.test.ts scripts/audio/*.test.ts",
+    "dev:rooms": "wrangler dev --config workers/rooms/wrangler.jsonc --port 8790 --persist-to .wrangler/state",
+    "dev:api": "wrangler pages dev --port 8788 --persist-to .wrangler/state",
+    "db:migrate:local": "wrangler d1 migrations apply slotwars-db --local --persist-to .wrangler/state",
+    "typecheck:server": "wrangler types functions/worker-configuration.d.ts && cd workers/rooms && wrangler types && cd ../.. && tsc -p functions && tsc -p workers/rooms",
+    "test:api": "node scripts/api-test.mjs",
+    "test:match": "node scripts/match-test.mjs"
+  },
+  "devDependencies": {
+    "@noble/hashes": "2.4.0",
+    "typescript": "5.9",
+    "vite": "^8.3.8",
+    "wrangler": "4.162.0"
+  },
+  "dependencies": {
+    "@fontsource/pixelify-sans": "^5.3.0"
+  }
+}

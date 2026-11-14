@@ -1,0 +1,6 @@
+# Cloudflare Pages: security headers for every static file
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: same-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()

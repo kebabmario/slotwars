@@ -1,0 +1,23 @@
+{
+  // Cloudflare Pages project: the built game (dist/) plus the API in functions/.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "slotwars",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-11-01",
+  "durable_objects": {
+    "bindings": [
+      { "name": "AUTH", "class_name": "AuthGate", "script_name": "slotwars-rooms" },
+      { "name": "ROOM", "class_name": "MatchRoom", "script_name": "slotwars-rooms" }
+    ]
+  },
+  "d1_databases": [
+    // free D1 database created 2026-11-14
+    { "binding": "DB", "database_name": "slotwars-db", "database_id": "dd2fe3f4-db3a-44c4-beab-419e41c72f6d", "migrations_dir": "migrations" }
+  ],
+  "vars": {
+    // until launch the site lives at slotwars.pages.dev; Phase 6 switches this to https://slotwars.kebabmario.dev
+    "ALLOWED_ORIGINS": "https://slotwars.pages.dev"
+  }
+  // optional secret TURNSTILE_SECRET: `wrangler pages secret put TURNSTILE_SECRET`
+  // local overrides live in .dev.vars (not deployed)
+}
